@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Healthcare Color Palette */
+    --background: 210 40% 98%;
+    --foreground: 210 40% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 11%;
+
+    /* Primary - Soft Medical Blue */
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Healing Green */
+    --secondary: 158 64% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Light Teal */
+    --accent: 187 70% 94%;
+    --accent-foreground: 199 89% 35%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Risk Level Colors */
+    --risk-low: 158 64% 52%;
+    --risk-medium: 45 93% 47%;
+    --risk-high: 0 84% 60%;
+
+    --border: 210 31% 91%;
+    --input: 210 31% 91%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(199, 89%, 48%) 0%, hsl(187, 70%, 50%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(158, 64%, 52%) 0%, hsl(170, 60%, 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210, 40%, 98%) 0%, hsl(199, 50%, 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 99%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 40% 11% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(210 40% 11% / 0.07), 0 2px 4px -2px hsl(210 40% 11% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(210 40% 11% / 0.08), 0 4px 6px -4px hsl(210 40% 11% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(210 40% 11% / 0.1), 0 8px 10px -6px hsl(210 40% 11% / 0.05);
+    --shadow-card: 0 4px 20px -2px hsl(199 89% 48% / 0.08);
+    --shadow-card-hover: 0 8px 30px -4px hsl(199 89% 48% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 210 40% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 40% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 210 40% 8%;
+
+    --secondary: 158 64% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 50% 20%;
+    --accent-foreground: 199 89% 75%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 32% 20%;
+    --input: 210 32% 20%;
+    --ring: 199 89% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .healthcare-card {
+    @apply bg-card rounded-2xl border border-border/50 shadow-md transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .healthcare-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .risk-low {
+    @apply bg-[hsl(var(--risk-low)/0.1)] text-[hsl(var(--risk-low))] border-[hsl(var(--risk-low)/0.3)];
+  }
+
+  .risk-medium {
+    @apply bg-[hsl(var(--risk-medium)/0.1)] text-[hsl(var(--risk-medium))] border-[hsl(var(--risk-medium)/0.3)];
+  }
+
+  .risk-high {
+    @apply bg-[hsl(var(--risk-high)/0.1)] text-[hsl(var(--risk-high))] border-[hsl(var(--risk-high)/0.3)];
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
